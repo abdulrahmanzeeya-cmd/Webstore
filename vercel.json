@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "wbstore/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "wbstore/dist" }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/wbstore/dist/index.html" }
+  ]
+}
