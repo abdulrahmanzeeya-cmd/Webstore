@@ -1,0 +1,227 @@
+.site-header {
+  min-height: 110px;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  padding: 16px 0 12px;
+  transition: var(--transition-smooth);
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  row-gap: 14px;
+  width: 100%;
+}
+
+.header-catalog {
+  justify-self: start;
+}
+
+.catalog-link {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  transition: var(--transition-smooth);
+}
+
+.catalog-link:hover {
+  color: var(--text-primary);
+}
+
+/* Logo styling */
+.header-logo {
+  grid-column: 2;
+  text-align: center;
+  margin-top: -6px; /* Move title a little bit top */
+}
+
+.header-logo h1 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.logo-sub {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--text-secondary);
+  display: block;
+  margin-top: 4px;
+}
+
+/* Actions styling */
+.header-actions {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.action-btn {
+  color: var(--text-primary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.action-btn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--accent-hover);
+}
+
+.action-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: var(--text-primary);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 600;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bg-primary);
+}
+
+/* Search Wrapper */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  width: 38px;
+  background-color: transparent;
+}
+
+.search-wrapper.expanded {
+  width: 240px;
+  background-color: var(--bg-secondary);
+  padding-right: 12px;
+}
+
+.search-input {
+  width: 0;
+  font-size: 12px;
+  padding: 8px 0;
+  transition: var(--transition-smooth);
+  opacity: 0;
+  color: var(--text-primary);
+}
+
+.search-wrapper.expanded .search-input {
+  width: 100%;
+  padding-left: 10px;
+  opacity: 1;
+}
+
+.search-clear-btn {
+  color: var(--text-secondary);
+  opacity: 0.6;
+  padding: 2px;
+  transition: var(--transition-fast);
+}
+
+.search-clear-btn:hover {
+  opacity: 1;
+}
+
+/* Mobile Nav Toggle */
+.mobile-nav-toggle {
+  display: none;
+  color: var(--text-primary);
+  padding: 8px;
+}
+
+/* Responsive constraints */
+@media (max-width: 900px) {
+  .site-header {
+    min-height: 70px;
+    height: 70px;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .header-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    z-index: 101;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-primary);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: var(--transition-smooth);
+    padding: 100px 30px 40px;
+    display: block;
+  }
+
+  .header-nav.mobile-open {
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .header-logo h1 {
+    font-size: 20px;
+    letter-spacing: 0.15em;
+  }
+}
